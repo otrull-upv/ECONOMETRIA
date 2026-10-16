@@ -35,6 +35,8 @@ ECONOMETRIA/
 ├── requirements.txt
 ├── LICENSE
 └── docs/
+   ├── regresion.md
+   └── time_series.md
 ```
 
 ## Requisitos
