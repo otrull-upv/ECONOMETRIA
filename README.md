@@ -27,12 +27,12 @@ El objetivo de este repositorio es servir como soporte para la realización de l
 ```text
 ECONOMETRIA/
 ├── README.md
-├── UD1_regresion_multiple/
+├── regresion/
 │   ├── README.md
 │   ├── app/
 │   ├── data/
 │   └── notebooks/
-├── UD2_series_temporales/
+├── series_temporales/
 │   ├── README.md
 │   ├── app/
 │   ├── data/
@@ -46,7 +46,7 @@ ECONOMETRIA/
 
 Para poder ejecutar el código, normalmente será necesario:
 
-- Un entorno de programación compatible (por ejemplo, Python, R o una herramienta específica del proyecto).
+- Un entorno de programación compatible (R) con el complemento Shiny.
 - Dependencias indicadas en el archivo `requirements.txt` o en la documentación de cada unidad.
 - Datos de ejemplo o instrucciones para su descarga.
 
@@ -58,22 +58,7 @@ Para poder ejecutar el código, normalmente será necesario:
 git clone https://github.com/otrull-upv/ECONOMETRIA.git
 cd ECONOMETRIA
 ```
-
-2. Crear un entorno virtual (si procede):
-
-```bash
-python -m venv venv
-source venv/bin/activate   # Linux/macOS
-venv\Scripts\activate      # Windows
-```
-
-3. Instalar las dependencias:
-
-```bash
-pip install -r requirements.txt
-```
-
-4. Consultar la documentación específica de cada unidad didáctica para ejecutar la aplicación correspondiente.
+2. Consultar la documentación específica de cada unidad didáctica para ejecutar la aplicación correspondiente.
 
 ## Uso
 
