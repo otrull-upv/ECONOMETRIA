@@ -94,7 +94,9 @@ La presencia de varianza no constante en los errores ($\text{Var}(e_i | X) = \si
 * **Contraste de Breusch–Pagan:** Evalúa si la varianza de los errores depende de los predictores mediante una regresión auxiliar de los residuos al cuadrado $e_i^2$ sobre las variables independientes. El estadístico LM se distribuye asintóticamente como una $\chi^2$ con $k$ grados de libertad:
   $$\text{LM} = n \cdot R^2_{e^2} \sim \chi^2_k$$
 * **Gráfico Scale-Location:** Representa la raíz cuadrada de los residuos estandarizados en valor absoluto frente a los valores ajustados:
-  $$\sqrt{|e_i^*|} = \sqrt{\left|\frac{\hat{e}_i}{\hat{\sigma}\sqrt{1 - h_{ii}}}\right|}$$
+  $$
+   \sqrt{|e_i^*|} ;=; \sqrt{\left|\frac{\hat{e}i}{\hat{\sigma}\sqrt{1 - h{ii}}}\right|}
+  $$
 
 ### 3.6. Autocorrelación Serial
 Frecuente en series temporales, donde los errores están correlacionados entre periodos ($\text{Cov}(e_t, e_{s}) \neq 0$).
@@ -110,5 +112,7 @@ $$\text{RMSE} = \sqrt{\frac{1}{n_{\text{test}}} \sum_{i \in \text{test}} (Y_i - 
 
 ### 3.8. Restricciones Lineales
 Permite contrastar hipótesis conjuntas sobre los coeficientes del modelo de la forma $R\beta = q$ mediante el estadístico $F$ de restricciones lineales:
-$$F = \frac{(\text{SSR}_R - \text{SSR}_{UR}) / q}{\text{SSR}_{UR} / (n - k - 1)} \sim F(q, n - k - 1)$$
+$$
+F ;=; \frac{(\mathrm{SSR}R - \mathrm{SSR}{UR})/q}{\mathrm{SSR}_{UR}/(n - k - 1)} \sim F\bigl(q,; n - k - 1\bigr) 
+$$
 Donde $\text{SSR}_R$ y $\text{SSR}_{UR}$ representan la suma de residuos al cuadrado del modelo restringido y no restringido, respectivamente.
