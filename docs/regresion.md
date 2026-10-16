@@ -116,3 +116,35 @@ $$
 F = \frac{(\mathrm{SSR}_R - \mathrm{SSR}_{UR})/q}{\mathrm{SSR}_{UR}/(n - k - 1)} \sim F\bigl(q,\, n - k - 1\bigr)
 $$
 Donde $\mathrm{SSR}_R$ y $\mathrm{SSR}_{UR}$ representan la suma de residuos al cuadrado del modelo restringido y no restringido, respectivamente.
+
+## Nota: renderizado de fórmulas LaTeX (MathJax / KaTeX)
+Si quieres que las ecuaciones se rendericen automáticamente al publicar la documentación (por ejemplo con GitHub Pages, MkDocs o Sphinx), añade una de las siguientes opciones en tu sitio:
+
+- GitHub Pages (sitio estático HTML): incluye MathJax en la plantilla HTML del sitio (por ejemplo en `_layouts/default.html`) añadiendo en el `<head>`:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+```
+
+- MkDocs (mkdocs-material): habilita la extensión arithmatex o usa KaTeX. Ejemplo mínimo para `mkdocs.yml` usando arithmatex:
+
+```yaml
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+```
+
+Para KaTeX con `extra_javascript` (opcional):
+
+```yaml
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js
+```
+
+- Sphinx / Jupyter Book: activa MathJax (en `conf.py`) o usa la extensión correspondiente: `extensions = ['sphinx.ext.mathjax', ...]`.
+
+Consejos prácticos:
+- Antes de publicar, comprueba localmente (mkdocs serve o builds de Jupyter Book) que las ecuaciones se muestran correctamente.
+- Si usas notebooks en el repositorio, considera limpiar salidas o exportar versiones HTML para la documentación.
+
