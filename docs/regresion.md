@@ -1,14 +1,14 @@
 # Guía de Usuario y Accesibilidad — Aplicación Shiny de Econometría
 
-Esta aplicación Shiny está diseñada para el análisis econométrico avanzado, permitiendo cargar datos, ajustar diversos modelos de regresión, evaluar supuestos econométricos fundamentales (multicolinealidad, normalidad, heterocedasticidad y autocorrelación), y realizar validaciones predictivas.
+Esta aplicación Shiny está diseñada para el análisis econométrico avanzado, permitiendo cargar datos, ajustar diversos modelos de regresión, evaluar supuestos econométricos fundamentales (mu[...]
 
 ## 1. Características de Accesibilidad (A11y)
 
 Con el fin de garantizar una experiencia inclusiva y cumplir con los estándares de accesibilidad web, la aplicación incorpora las siguientes herramientas:
 
-* **Enlace de salto rápido ("Skip link"):** Al pulsar la tecla `Tab` al cargar la página, aparece un enlace flotante que permite saltar directamente al contenido principal (`#main-content`), evitando recorrer toda la barra lateral de navegación.
+* **Enlace de salto rápido ("Skip link"):** Al pulsar la tecla `Tab` al cargar la página, aparece un enlace flotante que permite saltar directamente al contenido principal (`#main-content`), evit[...]
 
-* **Modo Accesible (Alto Contraste y Letra Grande):** En la parte superior de la barra lateral, encontrarás una casilla de verificación titulada **"Modo accesible (alto contraste y letra grande)"**. Al activarla:
+* **Modo Accesible (Alto Contraste y Letra Grande):** En la parte superior de la barra lateral, encontrarás una casilla de verificación titulada **"Modo accesible (alto contraste y letra grande)[...]
 
   * El tamaño de la fuente aumenta de forma global a un mínimo de $18\,\text{px}$ con una mayor altura de línea.
 
@@ -16,11 +16,11 @@ Con el fin de garantizar una experiencia inclusiva y cumplir con los estándares
 
   * Los botones y campos de formulario adquieren bordes y líneas de enfoque más gruesas ($2\text{--}3\,\text{px}$) y visibles.
 
-* **Indicadores de Enfoque (Focus Outlines):** Todos los elementos interactivos (botones, enlaces, campos de texto y selectores) muestran un contorno azul brillante ($3\,\text{px}$) al recibir el foco mediante el teclado, facilitando la navegación sin ratón.
+* **Indicadores de Enfoque (Focus Outlines):** Todos los elementos interactivos (botones, enlaces, campos de texto y selectores) muestran un contorno azul brillante ($3\,\text{px}$) al recibir el [...]
 
-* **Etiquetas para Lectores de Pantalla:** Se han incorporado clases ocultas `.sr-only` y atributos ARIA (`aria-label`, `role="img"`) en los bloques gráficos para describir adecuadamente el contenido visual a los usuarios de tecnologías de asistencia.
+* **Etiquetas para Lectores de Pantalla:** Se han incorporado clases ocultas `.sr-only` y atributos ARIA (`aria-label`, `role="img"`) en los bloques gráficos para describir adecuadamente el conte[...]
 
-* **Reducción de Movimiento:** La aplicación respeta la preferencia del sistema `prefers-reduced-motion`, desactivando o minimizando las transiciones y animaciones para usuarios sensibles al movimiento.
+* **Reducción de Movimiento:** La aplicación respeta la preferencia del sistema `prefers-reduced-motion`, desactivando o minimizando las transiciones y animaciones para usuarios sensibles al mov[...]
 
 ## 2. Guía de Uso del Panel Lateral (Controles)
 
@@ -67,7 +67,7 @@ Con el fin de garantizar una experiencia inclusiva y cumplir con los estándares
 Esta sección detalla los fundamentos matemáticos y estadísticos de las pestañas de diagnóstico integradas en la aplicación:
 
 ### 3.1. Datos y Exploración
-Permite visualizar la estructura interna del dataset y analizar la relación bivariada mediante diagramas de dispersión con ajuste no paramétrico `loess`. La ecuación general del modelo estimado se plantea como:
+Permite visualizar la estructura interna del dataset y analizar la relación bivariada mediante diagramas de dispersión con ajuste no paramétrico `loess`. La ecuación general del modelo estimad[...]
 $$Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \dots + \beta_k X_{ki} + e_i$$
 
 ### 3.2. Modelo y Estimación
@@ -79,7 +79,7 @@ $$R^2 = 1 - \frac{\sum e_i^2}{\sum (Y_i - \bar{Y})^2}$$
 ### 3.3. Multicolinealidad
 Cuando las variables explicativas presentan alta correlación lineal entre sí, las varianzas de los estimadores MCO se inflaman. Se evalúa mediante el Factor de Inflación de Varianza (VIF):
 $$\text{VIF}_j = \frac{1}{1 - R_j^2}$$
-Donde $R_j^2$ es el coeficiente de determinación de una regresión auxiliar de la variable $j$-ésima sobre el resto de predictores. Valores de $\text{VIF} > 10$ (o estrictamente $> 5$ en literatura moderna) sugieren problemas severos de multicolinealidad.
+Donde $R_j^2$ es el coeficiente de determinación de una regresión auxiliar de la variable $j$-ésima sobre el resto de predictores. Valores de $\text{VIF} > 10$ (o estrictamente $> 5$ en literat[...]
 
 ### 3.4. Normalidad de los Residuos
 Para garantizar la validez de las pruebas de hipótesis en muestras finitas, se analiza si los residuos siguen una distribución normal $e_i \sim \mathcal{N}(0, \sigma^2)$.
@@ -91,12 +91,12 @@ Para garantizar la validez de las pruebas de hipótesis en muestras finitas, se 
 
 ### 3.5. Heterocedasticidad
 La presencia de varianza no constante en los errores ($\text{Var}(e_i | X) = \sigma_i^2 \neq \text{constante}$) invalida los errores estándar tradicionales.
-* **Contraste de Breusch–Pagan:** Evalúa si la varianza de los errores depende de los predictores mediante una regresión auxiliar de los residuos al cuadrado $e_i^2$ sobre las variables independientes. El estadístico LM se distribuye asintóticamente como una $\chi^2$ con $k$ grados de libertad:
+* **Contraste de Breusch–Pagan:** Evalúa si la varianza de los errores depende de los predictores mediante una regresión auxiliar de los residuos al cuadrado $e_i^2$ sobre las variables indepe[...]
   $$\text{LM} = n \cdot R^2_{e^2} \sim \chi^2_k$$
 * **Gráfico Scale-Location:** Representa la raíz cuadrada de los residuos estandarizados en valor absoluto frente a los valores ajustados:
-  $$
-   \sqrt{|e_i^*|} ;=; \sqrt{\left|\frac{\hat{e}i}{\hat{\sigma}\sqrt{1 - h{ii}}}\right|}
-  $$
+$$
+\sqrt{|e_i^*|} = \sqrt{\left|\frac{\hat{e}_i}{\hat{\sigma}\sqrt{1 - h_{ii}}}\right|}
+$$
 
 ### 3.6. Autocorrelación Serial
 Frecuente en series temporales, donde los errores están correlacionados entre periodos ($\text{Cov}(e_t, e_{s}) \neq 0$).
@@ -113,6 +113,6 @@ $$\text{RMSE} = \sqrt{\frac{1}{n_{\text{test}}} \sum_{i \in \text{test}} (Y_i - 
 ### 3.8. Restricciones Lineales
 Permite contrastar hipótesis conjuntas sobre los coeficientes del modelo de la forma $R\beta = q$ mediante el estadístico $F$ de restricciones lineales:
 $$
-F ;=; \frac{(\mathrm{SSR}R - \mathrm{SSR}{UR})/q}{\mathrm{SSR}_{UR}/(n - k - 1)} \sim F\bigl(q,; n - k - 1\bigr) 
+F = \frac{(\mathrm{SSR}_R - \mathrm{SSR}_{UR})/q}{\mathrm{SSR}_{UR}/(n - k - 1)} \sim F\bigl(q,\, n - k - 1\bigr)
 $$
-Donde $\text{SSR}_R$ y $\text{SSR}_{UR}$ representan la suma de residuos al cuadrado del modelo restringido y no restringido, respectivamente.
+Donde $\mathrm{SSR}_R$ y $\mathrm{SSR}_{UR}$ representan la suma de residuos al cuadrado del modelo restringido y no restringido, respectivamente.
