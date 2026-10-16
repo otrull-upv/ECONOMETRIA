@@ -64,7 +64,7 @@ cd ECONOMETRIA
 
 Cada unidad didáctica incluye su propia aplicación y su propia documentación. El flujo habitual es:
 
-- abrir la aplicación de la UD correspondiente,
+- abrir la aplicación de la UD correspondiente, ya sea desde R o desde el fichero
 - cargar los datos de ejemplo o los datos del ejercicio,
 - ejecutar el análisis estadístico o econométrico solicitado,
 - interpretar los resultados,
@@ -72,11 +72,9 @@ Cada unidad didáctica incluye su propia aplicación y su propia documentación.
 
 ## Buenas prácticas
 
-- Mantener un código limpio y reproducible.
 - Documentar cada ejercicio con comentarios y explicaciones.
 - Guardar resultados, gráficos y salidas en carpetas adecuadas.
 - Usar datos de ejemplo cuando sea necesario para validar procedimientos.
-- Versionar cambios para facilitar la trazabilidad del trabajo.
 
 ## Contribuciones
 
