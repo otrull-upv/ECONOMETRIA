@@ -1,0 +1,59 @@
+# R and RStudio
+.Rhistory
+.Rapp.history
+.RData
+.Ruserdata
+.Renviron
+.Renviron.local
+.Rproj.user/
+.Rproj
+.Rproj.user
+.Rbuildignore
+
+# RStudio project files
+*.Rproj
+
+# R package build
+*.tar.gz
+/*.Rcheck/
+
+# renv and packrat
+renv/library/
+renv/cache/
+renv/staging/
+packrat/lib/
+packrat/packrat.lock
+
+# Compiled shared objects
+*.so
+*.dll
+*.dylib
+
+# Generated vignettes and documentation
+vignettes/*.html
+vignettes/*.pdf
+docs/
+
+# Logs and temporary files
+*.log
+*.aux
+*.out
+*.toc
+
+# Jupyter
+.ipynb_checkpoints
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Data (keep a gitignore in the data/ folder if you want to keep the folder but not files)
+data/
+
+# Ignore experimental or large files
+*.rda
+*.RData
+*.Rhistory
+
+# Keep this so git can track empty data folder if needed
+!data/.gitignore
