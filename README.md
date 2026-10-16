@@ -27,16 +27,11 @@ El objetivo de este repositorio es servir como soporte para la realización de l
 ```text
 ECONOMETRIA/
 ├── README.md
-├── regresion/
-│   ├── README.md
-│   ├── app/
-│   ├── data/
-│   └── notebooks/
-├── series_temporales/
-│   ├── README.md
-│   ├── app/
-│   ├── data/
-│   └── notebooks/
+├── apps/
+│   ├── regresion.R
+│   ├── time_series.R
+│   ├── ML_regression.R
+│   └── ML_timeseries.R
 ├── requirements.txt
 ├── LICENSE
 └── docs/
