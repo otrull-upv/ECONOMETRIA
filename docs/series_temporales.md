@@ -11,9 +11,9 @@ La aplicación permite cargar archivos en formato CSV o utilizar por defecto el 
 * **Índice Temporal:** Se procesa de forma robusta mediante la librería `tsibble`, detectando automáticamente formatos mensuales (`YYYY-MM`), trimestrales (`YYYY Qq`), anuales (`YYYY`) o fechas completas (`POSIXct` / `Date`).
 * **Conversión a Objeto de Serie Temporal (`ts`):** Para los algoritmos de modelización y pronóstico (`forecast`), las series se convierten internamente a la clase `ts` mediante la función:
   
-  $
-  Y_t = \{Y_1, Y_2, \dots, Y_n\}
-  $
+  $$
+   Y_t = \{Y_1, Y_2, \dots, Y_n\}
+  $$
 
   con una frecuencia estacional especificada por el usuario ($s = 12$ para mensual, $s = 4$ para trimestral, etc.).
 
