@@ -1,4 +1,4 @@
-# Guía de Usuario y Teórica — Aplicación de Series Temporales (Econometría)
+# Guía de Usuario y de Accesibilidad — Aplicación de Series Temporales (Econometría)
 
 Esta aplicación Shiny está diseñada para el análisis avanzado, modelización, diagnóstico y predicción de series temporales. Incorpora herramientas de accesibilidad (modo de alto contraste en blanco y negro, fuentes grandes y soporte completo para teclado).
 
@@ -11,11 +11,11 @@ La aplicación permite cargar archivos en formato CSV o utilizar por defecto el 
 * **Índice Temporal:** Se procesa de forma robusta mediante la librería `tsibble`, detectando automáticamente formatos mensuales (`YYYY-MM`), trimestrales (`YYYY Qq`), anuales (`YYYY`) o fechas completas (`POSIXct` / `Date`).
 * **Conversión a Objeto de Serie Temporal (`ts`):** Para los algoritmos de modelización y pronóstico (`forecast`), las series se convierten internamente a la clase `ts` mediante la función:
   
-  $$
-   \Y_t = \{Y_1, Y_2, \dots, Y_n\}
-  $$
+$$
+   Y_t = \{Y_1, Y_2, \dots, Y_n\}
+$$
 
-  con una frecuencia estacional especificada por el usuario ($s = 12$ para mensual, $s = 4$ para trimestral, etc.).
+con una frecuencia estacional especificada por el usuario ($s = 12$ para mensual, $s = 4$ para trimestral, etc.).
 
 ### 1.2. División Train / Test
 Para evaluar la capacidad predictiva fuera de muestra, la serie se divide en dos subconjuntos según la proporción de entrenamiento $p \in [0.6, 0.95]$:
@@ -29,30 +29,30 @@ Para evaluar la capacidad predictiva fuera de muestra, la serie se divide en dos
 ### 2.1. Transformaciones y Diferenciación
 * **Transformación de Box-Cox:** Utilizada para estabilizar la varianza cuando la amplitud estacional crece con el nivel de la serie:
   
-  $$
+$$
   y_t^{(\lambda)} = \begin{cases} \frac{y_t^\lambda - 1}{\lambda} & \text{si } \lambda \neq 0 \\ \ln(y_t) & \text{si } \lambda = 0 \end{cases}
-  $$
+$$
 
 * **Diferenciación Regular y Estacional:** Permite eliminar tendencias deterministas o estocásticas y raíces unitarias.
   * Operador de diferencia regular de orden $d$:
     
-    $$
-    \Delta^d y_t = (1 - B)^d y_t
-    $$
+$$
+  \Delta^d y_t = (1 - B)^d y_t
+$$
 
   * Operador de diferencia estacional de orden $D$ con periodicidad $s$:
     
-    $$
+$$
     \Delta_s^D y_t = (1 - B^s)^D y_t
-    $$
+$$
 
 ### 2.2. Periodograma Espectral
 El periodograma analiza la descomposición de la varianza de la serie en el dominio de las frecuencias, identificando ciclos ocultos o componentes estacionales dominantes.
 * **Densidad Espectral Estimada:** Se calcula mediante la transformada de Fourier discreta de las autocovarianzas muestrales con aplicación previa de un *taper*:
   
-  $$
+$$
   I(\omega) = \frac{1}{n} \left| \sum_{t=1}^n (y_t - \bar{y}) e^{-i \omega t} \right|^2
-  $$
+$$
 
   para frecuencias $\omega \in [0, \pi]$. Los picos locales en $I(\omega)$ señalan periodicidades significativas equivalentes a un periodo temporal de $T = \frac{2\pi}{\omega}$ (o $\frac{1}{\omega}$ en ciclos por observación).
 
@@ -89,9 +89,9 @@ $$
 * **Identificación (ACF y PACF):**
   * **Función de Autocorrelación (ACF):** Mide la correlación lineal entre $Y_t$ y $Y_{t-k}$:
     
-    $$
+$$
     \rho_k = \frac{\sum_{t=k+1}^n (Y_t - \bar{Y})(Y_{t-k} - \bar{Y})}{\sum_{t=1}^n (Y_t - \bar{Y})^2}
-    $$
+$$
 
   * **Función de Autocorrelación Parcial (PACF):** Mide la correlación entre $Y_t$ y $Y_{t-k}$ eliminando los efectos intermedios de los retardos $1$ a $k-1$.
 
@@ -121,26 +121,26 @@ Para garantizar que el modelo captura toda la estructura sistemática y que los 
 * **Normalidad:**
   * **Shapiro–Wilk:** Evalúa concordancia con la distribución normal en muestras finitas:
     
-    $$
+$$
     W = \frac{\left( \sum_{i=1}^n a_i e_{(i)} \right)^2}{\sum_{i=1}^n (e_i - \bar{e})^2}
-    $$
+$$
 
   * **Jarque–Bera:** Contraste asintótico basado en asimetría ($S$) y curtosis ($K$):
     
-    $$
+$$
     \text{JB} = \frac{n}{6} \left( S^2 + \frac{(K - 3)^2}{4} \right) \sim \chi^2_2
-    $$
+$$
 
 * **Homoscedasticidad condicional (Efectos ARCH):**
   * **Contraste ARCH-LM:** Evalúa la presencia de trazas de volatilidad condicional en los residuos al cuadrado $e_t^2$:
     
-    $$
+$$
     LM = n \cdot R^2 \sim \chi^2_m
-    $$
+$$
 
 * **Incorrelación serial (Ruido Blanco):**
   * **Contraste de Ljung–Box:** Prueba conjunta de autocorrelación hasta el retardo $m$:
     
-    $$
+$$
     Q = n(n+2) \sum_{k=1}^m \frac{\hat{\rho}_k^2}{n - k} \sim \chi^2_m
-    $$
+$$
