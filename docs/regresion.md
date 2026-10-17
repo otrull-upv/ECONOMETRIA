@@ -100,15 +100,16 @@ Para garantizar la validez de las pruebas de hipótesis en muestras finitas, se 
 
 * **Contraste de Shapiro–Wilk:** Evalúa la concordancia entre los estadísticos de orden muestrales y los valores esperados de una normal estándar:
 
-  $$
-  W = \frac{\left( \sum_{i=1}^{n} a_i e_{(i)} \right)^2}{\sum_{i=1}^{n} (e_i - \bar{e})^2}
-  $$
+$$
+    W = \frac{\left( \sum_{i=1}^{n} a_i e_{(i)} \right)^2}
+   {\sum_{i=1}^{n} (e_i - \overline{e})^2}
+$$
 
 * **Contraste de Jarque–Bera:** Mide el sesgo y la curtosis de los residuos en comparación con la distribución normal:
 
-  $$
+$$
   \text{JB} = \frac{n}{6} \left( S^2 + \frac{(K - 3)^2}{4} \right)
-  $$
+$$
 
   donde $S$ es el sesgo muestral y $K$ la curtosis.
 
@@ -117,30 +118,30 @@ La presencia de varianza no constante en los errores ($\text{Var}(e_i \mid X) = 
 
 * **Contraste de Breusch–Pagan:** Evalúa si la varianza de los errores depende de los predictores mediante una regresión auxiliar de los residuos al cuadrado $e_i^2$ sobre las variables independientes:
 
-  $$
+$$
   \text{LM} = n \cdot R^2_{e^2} \sim \chi^2_k
-  $$
+$$
 
 * **Gráfico Scale-Location:** Representa la raíz cuadrada de los residuos estandarizados en valor absoluto frente a los valores ajustados:
 
-  $$
+$$
   \sqrt{|e_i^*|} = \sqrt{\left| \frac{\hat{e}_i}{\hat{\sigma}\sqrt{1 - h_{ii}}} \right|}
-  $$
+$$
 
 ### 3.6. Autocorrelación Serial
 Frequente en series temporales, donde los errores están correlacionados entre periodos ($\text{Cov}(e_t, e_s) \neq 0$).
 
 * **Estadístico de Durbin–Watson:** Detecta autocorrelación de primer orden:
 
-  $$
+$$
   \text{DW} = \frac{\sum_{t=2}^{n} (e_t - e_{t-1})^2}{\sum_{t=1}^{n} e_t^2} \approx 2(1 - \hat{\rho})
-  $$
+$$
 
 * **Contraste de Breusch–Godfrey:** Permite probar autocorrelación de orden superior $p$:
 
-  $$
+$$
   e_t = \rho_1 e_{t-1} + \rho_2 e_{t-2} + \cdots + \rho_p e_{t-p} + \beta_0 + \sum_{j=1}^{k} \beta_j X_{jt} + v_t
-  $$
+$$
 
   El estadístico de prueba es $(n - p)R^2 \sim \chi^2_p$.
 
